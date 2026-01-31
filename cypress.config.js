@@ -6,7 +6,9 @@ const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor
 module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
-      await addCucumberPreprocessorPlugin(on, config);
+      await addCucumberPreprocessorPlugin(on, config, {
+        stepDefinitions: 'cypress/e2e/step_definitions/**/*.js'
+      });
       on("file:preprocessor",
         createBundler({
           plugins: [createEsbuildPlugin(config)],
@@ -15,7 +17,6 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/e2e/features/*.feature",
-    stepDefinitions: "cypress/e2e/step_definitions/**/*.js",
     baseUrl: "https://blankfactor.com",
     viewportWidth: 1280,
     viewportHeight: 720,
