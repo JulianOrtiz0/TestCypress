@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import { mainPage } from '../../e2e/pages/mainPage';
-import { retirementPage } from '../../e2e/pages/retirementPage';
-import { contactPage } from '../../e2e/pages/contactPage';
+import { mainPage } from '../../pages/mainPage';
+import { retirementPage } from '../../pages/retirementPage';
+import { contactPage } from '../../pages/contactPage';
 
 Given('I am on the Blankfactor homepage', () => {
     cy.visit('/');
