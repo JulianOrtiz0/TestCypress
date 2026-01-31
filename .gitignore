@@ -80,4 +80,9 @@ target/
 *.bmp
 *.gif
 *.bak
+
+# Cypress specific
+cypress/reports/
+cypress/screenshots/
+cypress/videos/
 # Custom rules

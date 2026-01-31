@@ -18,5 +18,11 @@
     "cypress-multi-reporters": "^2.0.5",
     "cypress-real-events": "^1.15.0",
     "mocha-junit-reporter": "^2.2.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/e2e/step_definitions/**/*.{js,ts}",
+      "cypress/e2e/features/**/*.{js,ts}"
+    ]
   }
 }
