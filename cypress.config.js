@@ -15,15 +15,23 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/e2e/features/*.feature",
+    stepDefinitions: "cypress/e2e/step_definitions/**/*.js",
     baseUrl: "https://blankfactor.com",
     viewportWidth: 1280,
     viewportHeight: 720,
-    reporter: 'mochawesome',
+    reporter: 'cypress-multi-reporters',
     reporterOptions: {
-      reportDir: 'cypress/reports',
-      overwrite: false,
-      html: true,
-      json: true
+      reporterEnabled: 'mochawesome, mocha-junit-reporter',
+      mochawesomeReporterOptions: {
+        reportDir: 'cypress/reports/mochawesome',
+        reportFilename: 'report',
+        overwrite: false,
+        html: true,
+        json: true
+      },
+      mochaJunitReporterReporterOptions: {
+        mochaFile: 'cypress/reports/junit/results-[hash].xml'
+      }
     }
   },
 });
